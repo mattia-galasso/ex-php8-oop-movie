@@ -40,8 +40,7 @@ class Movie
     }
 }
 
-/* $oppenheimer_genre = new Genre(['Drama', 'Sci-Fi'], 'primary'); */
-
+// Aggiunta Film alla Classe Movie e Aggiunta Genere dei Movie
 $oppenheimer = new Movie('Oppenheimer', 'Christopher Nolan', 2023, new Genre(['Drama', 'History'], "primary"));
 $interstellar = new Movie('Interstellar', 'Steven Spielberg', 2014, new Genre(['Drama', 'Sci-Fi'], "success"));
 
@@ -49,6 +48,7 @@ $interstellar = new Movie('Interstellar', 'Steven Spielberg', 2014, new Genre(['
 $oppenheimer->setRating(3);
 $interstellar->setRating(4);
 
+// Var_Dump
 var_dump($oppenheimer);
 var_dump($oppenheimer->isRecent());
 var_dump($interstellar);

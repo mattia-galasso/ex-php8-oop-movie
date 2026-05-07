@@ -1,14 +1,17 @@
 <?php
+
+require_once './Traits/Rating.php';
+
 // Classe Generi
 class Genre
 {
-    public $genre;
-    public $genre_color = "info";
+    public $genre = [];
+    public $genreColor = "info";
 
-    function __construct($_genre, $_genre_color)
+    function __construct($_genre, $_genreColor)
     {
         $this->genre = $_genre;
-        $this->genre_color = $_genre_color;
+        $this->genreColor = $_genreColor;
     }
 }
 
@@ -19,6 +22,9 @@ class Movie
     public $productor;
     public $year;
     public $genre;
+
+    // Trait Password
+    use Rating;
 
     function __construct($_name, $_productor, $_year, Genre $_genre)
     {
@@ -34,10 +40,14 @@ class Movie
     }
 }
 
-$oppenheimer = new Movie('Oppenheimer', 'Christopher Nolan', 2023, new Genre('Drama', "primary"));
-$interstellar = new Movie('Interstellar', 'Steven Spielberg', 2014, new Genre('Sci-Fi', "success"));
+/* $oppenheimer_genre = new Genre(['Drama', 'Sci-Fi'], 'primary'); */
 
+$oppenheimer = new Movie('Oppenheimer', 'Christopher Nolan', 2023, new Genre(['Drama', 'History'], "primary"));
+$interstellar = new Movie('Interstellar', 'Steven Spielberg', 2014, new Genre(['Drama', 'Sci-Fi'], "success"));
 
+// Nuovo Rating
+$oppenheimer->setRating(3);
+$interstellar->setRating(4);
 
 var_dump($oppenheimer);
 var_dump($oppenheimer->isRecent());

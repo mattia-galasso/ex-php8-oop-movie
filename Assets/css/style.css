@@ -1,0 +1,94 @@
+/*! RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/*? GENERIC RULES */
+.body-container {
+    background-color: #2e3c65;
+}
+
+/** HEADER */
+.header-container {
+    position: relative;
+    background-color: #05131e;
+    height: 5rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-container img {
+    height: 3rem;
+}
+
+.header-title {
+    position: absolute;
+    left: 50%;
+    translate: -50%  10%;
+    color: white;
+    font-family: "Kode Mono", monospace;
+    font-weight: bold;
+}
+
+/** MAIN  */
+
+.main-container {
+    padding: 4rem 12rem;
+}
+
+.cards-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.card-container {
+    font-family: "Roboto", sans-serif;  
+    font-weight: 600;
+    background-color: #05131e;
+    padding: 2.5rem 2rem 2rem;
+    width: 350px;
+    min-height: 440px;
+    border-radius: 10px;
+    text-align: center; 
+    position: relative;
+}
+
+.card-container img {
+  border-radius: 10px;
+  width: 286px;
+}
+
+.single-badge {
+    position: absolute;
+    translate: 50% -50%;
+    top: 0;
+    right: 50%;
+    display: flex;
+    gap: 1rem;
+}
+
+.dual-badge {
+    display: flex;
+    gap: 1rem;
+}
+
+.card-badge {
+    font-size: 1.5rem;
+}

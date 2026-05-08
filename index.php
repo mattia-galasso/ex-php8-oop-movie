@@ -1,64 +1,52 @@
 <?php
+require_once './db.php';
+?>
 
-require_once './Traits/Rating.php';
+<!DOCTYPE html>
+<html lang="it">
 
-// Classe Generi
-class Genre
-{
-    public $genre;
-    public $genreColor = "info";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Movie</title>
+    <link rel="icon" href="./Assets/img/logo_movie.png" type="image/png">
 
-    function __construct($_genre, $_genreColor)
-    {
-        $this->genre = $_genre;
-        $this->genreColor = $_genreColor;
-    }
-}
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
 
-// Classe Movie
-class Movie
-{
-    public $name;
-    public $productor;
-    public $year;
-    public array $genre;
+    <!-- BOOTSTRAP ICONS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-    // Trait Password
-    use Rating;
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    function __construct($_name, $_productor, $_year, Genre $_genre)
-    {
-        $this->name = $_name;
-        $this->productor = $_productor;
-        $this->year = $_year;
-        $this->genre = [$_genre];
-    }
+    <!-- BOOTSTRAP SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
 
-    public function isRecent()
-    {
-        return $this->year >= date('Y') - 10;
-    }
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+</head>
 
-    public function addGenre(Genre $_genre)
-    {
-        array_push($this->genre, $_genre);
-    }
-}
+<body class="body-container">
+    <header>
+        <div class="header-container">
+            <h1 class="header-title">PHP Movie</h1>
+            <img src="./Assets/img/logo_movie.png" alt="Logo PHP Movie">
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="cards-box">
+                <?php
+                foreach ($movies as $movie) {
+                    echo $movie->getHtmlCard();
+                }
+                ?>
+            </div>
+        </div>
+    </main>
+</body>
 
-// Aggiunta Film alla Classe Movie e Aggiunta Generi dei Movie
-$oppenheimer = new Movie('Oppenheimer', 'Christopher Nolan', 2023, new Genre('Drama', "primary"));
-$interstellar = new Movie('Interstellar', 'Steven Spielberg', 2014, new Genre('Drama', "success"));
-
-// Aggiunta Genere a Movie
-$oppenheimer->addGenre(new Genre('History', "secondary"));
-$interstellar->addGenre(new Genre('Sci-Fi', "success"));
-
-// Nuovo Rating
-$oppenheimer->setRating(3);
-$interstellar->setRating(4);
-
-// Var_Dump
-var_dump($oppenheimer);
-var_dump($oppenheimer->isRecent());
-var_dump($interstellar);
-var_dump($interstellar->isRecent());
+</html>

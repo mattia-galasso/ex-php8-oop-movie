@@ -2,7 +2,7 @@
 
 trait Rating
 {
-    private $rating = "0/5";
+    private $rating = "0";
 
     public function setRating($addRating)
     {
@@ -11,5 +11,10 @@ trait Rating
         } else {
             echo "Il Rating deve essere un numero e deve essere un numero compresa tra 1 e 5";
         }
+    }
+
+    public function getRating()
+    {
+        $this->rating;
     }
 }

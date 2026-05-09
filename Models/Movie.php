@@ -51,6 +51,18 @@ class Movie
         $html .= '<li class="fs-5">' . $this->title . '</li>';
         $html .= '<li class="my-3 fs-5">' . $this->productor . '</li>';
         $html .= '<li class="fs-5">' . $this->year . '</li>';
+        $html .= '<li class="mt-3 stars-icon">';
+
+        // Rating
+        for ($i = 0; $i < 5; $i++) {
+            if ($i < $this->rating) {
+                $html .= '<i class="bi bi-star-fill"></i>';
+            } else {
+                $html .= '<i class="bi bi-star"></i>';
+            }
+        }
+
+        $html .= '</li>';
         $html .= '<img class="mt-4" src="./Assets/img/Cover/' . $this->coverIMG . '" alt="Immagine Copertina">' .
             '</ul>';
 

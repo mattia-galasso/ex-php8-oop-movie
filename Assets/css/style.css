@@ -84,11 +84,17 @@ ul {
     gap: 1rem;
 }
 
-.dual-badge {
-    display: flex;
-    gap: 1rem;
-}
-
 .card-badge {
     font-size: 1.5rem;
+}
+
+.stars-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+}
+
+.stars-icon i {
+    color: gold;
 }
